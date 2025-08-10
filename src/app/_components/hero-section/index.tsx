@@ -4,7 +4,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-[550px] xl:h-[700px] 2xl:h-[800px] overflow-hidden">
+    <section className="relative w-full h-[550px] xl:h-[700px] 2xl:h-[800px]">
       <Image
         src="/images/Bakery image.png"
         fill

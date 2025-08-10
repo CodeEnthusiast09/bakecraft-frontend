@@ -1,9 +1,9 @@
-import SolutionCard from "@/components/solution-card";
+import SolutionCard from "@/app/_components/solution-section/_components";
 
 const SolutionSection = () => {
   return (
     <div className="mt-10 xl:mt-[72px]">
-      <h2 className="min-[320px]:text-[27px] min-[375px]:text-3xl min-[425px]:text-4xl lg:text-[44px] xl:text-6xl text-center font-bold mb-10 xl:mb-[72px]">
+      <h2 className="text-primary-300 min-[320px]:text-[27px] min-[375px]:text-3xl min-[425px]:text-4xl lg:text-[44px] xl:text-6xl text-center font-bold mb-10 xl:mb-[72px]">
         Your <span className="text-secondary-100">all-in-one</span> bakery
         solution
       </h2>
