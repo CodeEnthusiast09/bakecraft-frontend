@@ -16,7 +16,7 @@ const HowToSection = () => {
 
         <div className="absolute top-16 left-12 lg:left-9 -z-1">
           <Image
-            alt="picture of a woman in a bakery"
+            alt="vector"
             src={"/images/design.png"}
             width={460}
             height={570}
