@@ -2,15 +2,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
+import {
+  motion,
+  AnimatePresence,
+  easeInOut,
+  easeOut,
+  Variants,
+} from "framer-motion";
 
 export default function NotFound() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [isOvenClicked, setIsOvenClicked] = useState(false);
   const [screenWidth, setScreenWidth] = useState(800);
   const [screenHeight, setScreenHeight] = useState(600);
-  const router = useRouter();
 
   useEffect(() => {
     // Safe access to window on client side
@@ -24,7 +27,7 @@ export default function NotFound() {
   };
 
   // Animation variants (same as yours)
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -32,20 +35,20 @@ export default function NotFound() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
   };
 
-  const ovenVariants = {
+  const ovenVariants: Variants = {
     idle: {
       rotate: [0, 0.5, -0.5, 0],
-      transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+      transition: { duration: 3, repeat: Infinity, ease: easeInOut },
     },
     clicked: {
       scale: [1, 1.1, 1],
       rotate: [0, -2, 2, -1, 1, 0],
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: { duration: 0.8, ease: easeInOut },
     },
   };
 
@@ -54,7 +57,7 @@ export default function NotFound() {
       y: [-10, -30],
       opacity: [0.8, 0],
       scale: [1, 1.3],
-      transition: { duration: 2, repeat: Infinity, ease: "easeOut" },
+      transition: { duration: 2, repeat: Infinity, ease: easeOut },
     },
   };
 
@@ -63,7 +66,7 @@ export default function NotFound() {
       y: [0, -20, 0],
       x: [0, 10, 0],
       rotate: [0, 5, 0],
-      transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+      transition: { duration: 6, repeat: Infinity, ease: easeInOut },
     },
   };
 

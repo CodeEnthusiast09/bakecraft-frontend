@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 export type ButtonVariant = "primary" | "secondary" | "transparent";
 
 export type ButtonProps = {
