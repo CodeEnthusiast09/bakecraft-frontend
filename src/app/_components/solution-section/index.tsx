@@ -1,4 +1,4 @@
-import SolutionCard from "@/app/_components/solution-section/_components";
+import SolutionCard from "@/app/_components/solution-section/_components/solution-card";
 
 const SolutionSection = () => {
   return (
@@ -8,7 +8,7 @@ const SolutionSection = () => {
         solution
       </h2>
 
-      <div className="flex flex-col items-center justify-center gap-16 2xl:gap-28 lg:flex-row lg:flex-wrap xl:flex-row">
+      <div className="flex flex-col items-center justify-center gap-16 md:gap-12 2xl:gap-28 md:flex-row md:flex-wrap xl:flex-row">
         <SolutionCard
           image="/images/real-time.svg"
           title="Real time reports & analytics"
