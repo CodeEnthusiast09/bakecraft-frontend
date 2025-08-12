@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="relative mt-10 xl:mt-[72px]">
+    <div className="relative mt-10 xl:mt-[72px] h-[550px] md:h-[339px] bg-secondary-100">
       <Image
         alt="vector"
         src={"/images/design.png"}
         width={460}
         height={326}
         priority
-        className="transform scale-x-[-1] w-full h-[420px] md:h-[289px] object-cover object-[75%_70%] bg-secondary-100"
+        className="transform scale-x-[-1] w-full "
       />
 
       <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:p-24 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
