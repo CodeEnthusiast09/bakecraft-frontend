@@ -1,9 +1,9 @@
 "use client";
 
-import { InputProps } from "components/input/type";
-import { GoEyeClosed, GoEye } from "react-icons/go";
+import { InputProps } from "@/components/input/type";
 import { forwardRef, useState } from "react";
-import { Input } from "components/input";
+import { Input } from "@/components/input";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export const MaskPasswordInput = forwardRef<HTMLInputElement, InputProps>(
   ({ ...rest }, ref) => {
@@ -15,10 +15,10 @@ export const MaskPasswordInput = forwardRef<HTMLInputElement, InputProps>(
         <button
           type="button"
           onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute right-3 top-[50%]"
+          className="absolute right-3 top-[58%] text-primary-500"
           aria-label={showPassword ? "hide password" : "show password"}
         >
-          {showPassword ? <GoEye /> : <GoEyeClosed />}
+          {showPassword ? <FiEye size={16.5} /> : <FiEyeOff size={16.5} />}
         </button>
       </div>
     );

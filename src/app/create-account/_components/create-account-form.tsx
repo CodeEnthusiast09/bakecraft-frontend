@@ -62,7 +62,7 @@ export const SignUpForm = () => {
       </div>
       <div className="pt-8">
         <LinkButton
-          href="/"
+          href="/create-account/password"
           variant="primary"
           className="w-full cursor-pointer text-[20px] font-bold whitespace-nowrap"
           //   isLoading={isSubmitting}
