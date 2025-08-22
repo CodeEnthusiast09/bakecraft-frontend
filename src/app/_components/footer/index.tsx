@@ -9,7 +9,7 @@ const Footer = () => {
         width={460}
         height={326}
         priority
-        className="transform scale-x-[-1] w-full "
+        className="transform scale-x-[-1] w-full h-[550px] md:h-[339px] object-cover"
       />
 
       <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:p-24 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">

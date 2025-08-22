@@ -50,7 +50,7 @@ export const LinkButton = (props: ButtonProps) => {
           onClick?.(e);
         }}
         className={clsx(
-          "transition-all duration-300 ease-in-out text-background focus:outline-2 font-medium text-center flex items-center focus:outline-offset-2",
+          "transition-all duration-300 ease-in-out text-background focus:outline-2 text-center flex items-center focus:outline-offset-2",
           justifyContent,
           radius,
           variantClass(),

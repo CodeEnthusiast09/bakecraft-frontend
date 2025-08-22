@@ -1,7 +1,7 @@
 import { forwardRef, useId } from "react";
 import { InputProps } from "./type";
 import clsx from "clsx";
-import { addCommaToNumber } from "lib/utils";
+import { addCommaToNumber } from "@/lib/utils";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -29,21 +29,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       let inputValue = e.target.value;
 
-
       if (addCommaToValue) {
-
-        const numericValue = inputValue.replace(/[^0-9.]/g, '');
-
+        const numericValue = inputValue.replace(/[^0-9.]/g, "");
 
         // Handle special cases: empty string, just a dot, or dot followed by digits
-        if (numericValue === '' || numericValue === '.' || numericValue.match(/^\.\d*$/)) {
+        if (
+          numericValue === "" ||
+          numericValue === "." ||
+          numericValue.match(/^\.\d*$/)
+        ) {
           inputValue = numericValue;
         } else {
           inputValue = addCommaToNumber(numericValue);
         }
 
         inputValue = addCommaToNumber(numericValue);
-
       }
 
       if (onChange) {
@@ -60,8 +60,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={id}
-            className={`flex items-center text-xs font-medium gap-1  ${labelClassName ? labelClassName : "text-black/70"
-              }`}
+            className={`flex items-center text-base font-light gap-1  ${
+              labelClassName ? labelClassName : "text-primary-300"
+            }`}
           >
             {label}
 
@@ -83,10 +84,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             placeholder={placeholder}
             value={value}
             defaultValue={defaultValue}
-            onChange={onChange ? addCommaToValue ? handleChange : onChange : undefined}
+            onChange={
+              onChange ? (addCommaToValue ? handleChange : onChange) : undefined
+            }
             // onChange={handleChange}
             className={clsx(
-              "mt-2 outline-0 placeholder-gray-300 block w-full h-12  text-sm py-2 border border-slate-300 focus:outline-1 focus:outline-primary-500 ",
+              "mt-2 outline-0 placeholder-primary-500 placeholder:font-light placeholder:text-base block w-full h-12  text-base py-2 border border-primary-500 focus:outline-1 focus:outline-primary-500 ",
               className ? className : "text-gray-600",
               leftIcon ? "pl-10" : "px-4",
               radius
