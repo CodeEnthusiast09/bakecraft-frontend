@@ -31,7 +31,7 @@ const PlanCard = ({ name, description, amount, interval }: PlanCardProps) => {
         </div>
 
         <LinkButton
-          href="/create-account"
+          href="/create-account/subscription-success"
           variant="secondary"
           className="text-[17px] py-2.5 cursor-pointer whitespace-nowrap"
         >

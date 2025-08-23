@@ -4,7 +4,7 @@ import PlanCard from "./_components/plan-card";
 const PlansSection = () => {
   return (
     <div className="relative flex flex-col items-center">
-      <div className="relative w-full h-screen lg:h-[50vh] bg-secondary-100">
+      <div className="relative w-full h-[190vh] md:h-[110vh] xl:h-[50vh] bg-secondary-100">
         <Image
           alt=""
           src={"/images/design.png"}
@@ -18,7 +18,7 @@ const PlansSection = () => {
           }}
         />
 
-        <div className="absolute w-full flex items-center justify-around px-4 py-4 sm:px-6 md:px-8 lg:px-12 p-2.5">
+        <div className="absolute w-full flex items-center justify-between px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
           <div>
             <Image
               alt="logo"
@@ -34,9 +34,9 @@ const PlansSection = () => {
           </p>
         </div>
 
-        <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:p-24">
-          <p className="text-white min-[320px]:text-3xl min-[375px]:text-4xl lg:text-[40px] 2xl:text-5xl text-center mb-5 leading-[1.3]">
-            <span className="font-bold"> Flexible Plans</span>
+        <div className="absolute inset-0 z-20 py-20 px-5 lg:pt-[110px] xl:pt-[300px] 2xl:pt-[230px]">
+          <p className="text-white min-[320px]:text-3xl min-[375px]:text-4xl lg:text-[40px] 2xl:text-5xl text-center mb-5 leading-[1.3] font-bold">
+            Flexible Plans
           </p>
 
           <p className="text-white text-xl 2xl:text-3xl font-light text-center mt-2.5">
