@@ -5,7 +5,7 @@ import { useState } from "react";
 import { RiMenu4Line } from "react-icons/ri";
 import { FaTimes } from "react-icons/fa";
 import { navItems } from "./navbar.data";
-import { NavItem } from "@/interface/global";
+import { NavItem } from "@/interfaces/global";
 import { NavBarItem } from "./navbar-item";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";

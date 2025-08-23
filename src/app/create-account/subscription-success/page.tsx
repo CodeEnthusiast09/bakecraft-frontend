@@ -4,7 +4,7 @@ import Image from "next/image";
 const SubscriptionSuccess = () => {
   return (
     <>
-      <div className="w-screen h-screen flex flex-col items-center justify-center">
+      <div className="w-screen h-screen flex flex-col items-center justify-center p-2.5">
         <Image
           alt="success image"
           src={"/images/success.svg"}
@@ -12,15 +12,18 @@ const SubscriptionSuccess = () => {
           height={365}
         />
 
-        <p className="font-bold text-[44px] mb-7">Subscription Successful!</p>
+        <p className="font-bold text-2xl md:text-[44px] mb-7">
+          Subscription Successful!
+        </p>
 
-        <p className="font-normal text-base text-primary-500 mb-7">
+        <p className="font-normal text-base text-primary-500 text-center mb-7">
           Now you have access to all you need to take your bakery to the next
           level!
         </p>
 
         <LinkButton
           href="/create-account/company-details"
+          size="md"
           className="text-xl font-medium w-64"
         >
           Continue

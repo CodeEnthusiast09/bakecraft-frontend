@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { NavItem } from "@/interface/global";
+import { NavItem } from "@/interfaces/global";
 import Link from "next/link";
 
 type NavBarItemProps = {

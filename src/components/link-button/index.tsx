@@ -12,7 +12,7 @@ export const LinkButton = (props: ButtonProps) => {
     variant = "primary",
     justifyContent = "justify-center",
     size = "lg",
-    radius = "rounded-xl focus:rounded-xl",
+    radius = "rounded-lg focus:rounded-lg",
     target = "",
     ...rest
   } = props;

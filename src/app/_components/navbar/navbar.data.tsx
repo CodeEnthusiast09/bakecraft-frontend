@@ -1,4 +1,4 @@
-import { NavItem } from "@/interface/global";
+import { NavItem } from "@/interfaces/global";
 
 export const navItems: NavItem[] = [
   {

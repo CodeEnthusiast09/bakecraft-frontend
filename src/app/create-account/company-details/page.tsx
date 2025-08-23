@@ -27,24 +27,24 @@ export default function CompanyDetailsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 flex flex-col lg:flex-row">
       {/* Left Sidebar with Progress Steps */}
-      <div className="w-[35%] bg-white shadow-sm p-8">
+      <div className="hidden w-full lg:w-[35%] bg-white shadow-sm p-8 md:flex justify-between lg:flex-col lg:justify-start items-center">
         {/* Logo */}
-        <div className="mb-[150px]">
+        <div className="lg:mb-[88px]">
           <Link href={"/"}>
             <Image
               alt="logo"
               src="/images/logo.png"
               width={93}
               height={46}
-              className="w-auto h-12 sm:h-12 md:h-14 2xl:h-16 absolute top-5 left-12 xl:left-40"
+              className="w-auto h-12 sm:h-12 md:h-14 2xl:h-16"
             />
           </Link>
         </div>
 
         {/* Progress Steps */}
-        <div className="space-y-8">
+        <div className="lg:space-y-8 flex items-center gap-5 lg:block">
           {/* Step 1 - Create Account */}
           <div className="flex items-center gap-4">
             <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
@@ -79,8 +79,8 @@ export default function CompanyDetailsPage() {
 
           {/* Step 3 - Company Details */}
           <div className="flex items-center gap-4">
-            <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
-              <span className="text-white font-medium text-sm">3</span>
+            <div className="w-8 h-8 rounded-full border-1 border-primary-100 flex items-center justify-center">
+              <span className="text-primary-100 font-medium text-sm">3</span>
             </div>
             <span className="text-primary-100 font-medium">
               Company Details
@@ -90,75 +90,65 @@ export default function CompanyDetailsPage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 p-12">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
-            Company Details
-          </h2>
+      {/* <div className="flex-1 p-12"> */}
+      <div className="w-full flex flex-col ustify-center px-5 py-10 md:px-12 md:py-12 lg:py-32">
+        <h2 className="text-3xl font-bold text-gray-900 mb-12">
+          Company Details
+        </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Company Name */}
-            <div className="space-y-2">
-              <Input
-                label={"Company Name"}
-                id="companyName"
-                value={formData.companyName}
-                onChange={(e) =>
-                  handleInputChange("companyName", e.target.value)
-                }
-              />
-            </div>
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-8 lg:w-[70%] 2xl:w-[50%]"
+        >
+          {/* Company Name */}
 
-            {/* Company Address */}
-            <div className="space-y-2">
-              <Input
-                label={"Company Address"}
-                id="companyAddress"
-                placeholder="Enter Company Address"
-                value={formData.companyAddress}
-                onChange={(e) =>
-                  handleInputChange("companyAddress", e.target.value)
-                }
-              />
-            </div>
+          <Input
+            label={"Company Name"}
+            id="companyName"
+            value={formData.companyName}
+            onChange={(e) => handleInputChange("companyName", e.target.value)}
+          />
 
-            {/* Official Email */}
-            <div className="space-y-2">
-              <Input
-                label={"Official Email"}
-                id="officialEmail"
-                type="email"
-                placeholder="Enter Company Email"
-                value={formData.officialEmail}
-                onChange={(e) =>
-                  handleInputChange("officialEmail", e.target.value)
-                }
-              />
-            </div>
+          {/* Company Address */}
+          <Input
+            label={"Company Address"}
+            id="companyAddress"
+            placeholder="Enter Company Address"
+            value={formData.companyAddress}
+            onChange={(e) =>
+              handleInputChange("companyAddress", e.target.value)
+            }
+          />
 
-            {/* Company Phone Number */}
-            <div className="space-y-2">
-              <Input
-                label={"Company Phone Number"}
-                id="companyPhone"
-                type="tel"
-                placeholder="Enter Company Phone Number"
-                value={formData.companyPhone}
-                onChange={(e) =>
-                  handleInputChange("companyPhone", e.target.value)
-                }
-              />
-            </div>
+          {/* Official Email */}
+          <Input
+            label={"Official Email"}
+            id="officialEmail"
+            type="email"
+            placeholder="Enter Company Email"
+            value={formData.officialEmail}
+            onChange={(e) => handleInputChange("officialEmail", e.target.value)}
+          />
 
-            {/* Submit Button */}
-            <div className="flex justify-end pt-8">
-              <Button variant="primary" className="w-[120px]">
-                Submit
-              </Button>
-            </div>
-          </form>
-        </div>
+          {/* Company Phone Number */}
+          <Input
+            label={"Company Phone Number"}
+            id="companyPhone"
+            type="tel"
+            placeholder="Enter Company Phone Number"
+            value={formData.companyPhone}
+            onChange={(e) => handleInputChange("companyPhone", e.target.value)}
+          />
+
+          {/* Submit Button */}
+          <div className="flex justify-end pt-8">
+            <Button variant="primary" className="w-[120px]">
+              Submit
+            </Button>
+          </div>
+        </form>
       </div>
+      {/* </div> */}
     </div>
   );
 }

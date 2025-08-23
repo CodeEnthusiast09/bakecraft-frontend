@@ -11,7 +11,7 @@ export const Button = (props: ButtonProps) => {
     className: extendedClassName,
     variant = "primary",
     justifyContent = "justify-center",
-    radius = "rounded-xl lg:rounded-xl focus:rounded-xl",
+    radius = "rounded-lg lg:rounded-lg focus:rounded-lg",
     size = "md",
     ...rest
   } = props;
@@ -52,7 +52,7 @@ export const Button = (props: ButtonProps) => {
       onClick={onClick}
       disabled={isLoading || disabled}
       className={clsx(
-        "transition-all duration-300 ease-in-out  lg:focus:outline-2 font-medium  text-sm text-center flex items-center focus:outline-offset-2",
+        "transition-all duration-300 ease-in-out  lg:focus:outline-2 font-medium  text-base text-center flex items-center focus:outline-offset-2",
         justifyContent,
         radius,
         variantClass(),
