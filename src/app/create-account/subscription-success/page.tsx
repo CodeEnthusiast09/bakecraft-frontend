@@ -22,7 +22,7 @@ const SubscriptionSuccess = () => {
         </p>
 
         <LinkButton
-          href="/create-account/company-details"
+          href="/create-account/complete"
           size="md"
           className="text-xl font-medium w-64"
         >

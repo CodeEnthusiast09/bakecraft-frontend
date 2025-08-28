@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ProductSans } from "./fonts";
 import { ProviderWrappers } from "@/components/provider-wrappers";
+import { Toaster } from "react-hot-toast";
+import { TOASTER_PROPS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "BakeCraft",
@@ -16,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ProductSans.className}  antialiased`}>
-        <ProviderWrappers>{children}</ProviderWrappers>
+        <ProviderWrappers>
+          <Toaster {...TOASTER_PROPS} />
+          {children}
+        </ProviderWrappers>
       </body>
     </html>
   );

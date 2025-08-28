@@ -3,7 +3,7 @@
 import Image from "next/image";
 import PlanCard from "@/components/plan-card";
 import Link from "next/link";
-import { usePlans } from "@/hooks/services/plan/usePlans";
+import { usePlans } from "@/hooks/services/plan";
 
 const PlansSection = () => {
   const { data: plans, isPending } = usePlans();

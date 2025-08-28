@@ -1,4 +1,5 @@
 import { NavItem } from "@/interfaces/global";
+import { tenantPath } from "@/lib/tenantRouter";
 
 export const navItems: NavItem[] = [
   {
@@ -7,6 +8,6 @@ export const navItems: NavItem[] = [
   },
   {
     name: "Log in",
-    href: "/login",
+    href: tenantPath("/login"),
   },
 ];
