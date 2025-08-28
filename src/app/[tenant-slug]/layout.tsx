@@ -27,7 +27,7 @@ const PageLayout = async ({
   const basicTenantDetails = {
     id: tenantDetails?.id,
     slug: tenantDetails?.slug,
-    name: tenantDetails?.name,
+    company_name: tenantDetails?.company_name,
   };
 
   return (

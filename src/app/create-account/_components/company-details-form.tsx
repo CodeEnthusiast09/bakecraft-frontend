@@ -1,8 +1,8 @@
 "use client";
 
-import { Checkbox } from "@/components/input/checkbox";
+import { Input } from "@/components/input";
 import { LinkButton } from "@/components/link-button";
-import { MaskPasswordInput } from "@/components/mask-password-input";
+// import { MaskPasswordInput } from "components/mask-password-input";
 // import { Select } from "components/select";
 import Link from "next/link";
 // import { useSignUp } from "hooks";
@@ -11,7 +11,7 @@ import Link from "next/link";
 // import { InferType } from "yup";
 // import { yupResolver } from "@hookform/resolvers/yup";
 
-export const PasswordForm = () => {
+export const CompanyDetailsForm = () => {
   //   const { mutate: signUp, isPending: isSubmitting } = useSignUp();
 
   //   const {
@@ -30,45 +30,39 @@ export const PasswordForm = () => {
     <form
     //     onSubmit={handleSubmit(handleSignUp)}
     >
-      <MaskPasswordInput
-        label="Create your password"
-        placeholder="Enter Password"
-        //   error={errors?.password}
-        //   {...register("password", { required: true })}
+      <Input label={"Company Name"} id="companyName" />
+
+      {/* Company Address */}
+      <Input
+        label={"Company Address"}
+        id="companyAddress"
+        placeholder="Enter Company Address"
       />
 
-      <MaskPasswordInput
-        label="Create your password"
-        placeholder="Enter Password"
-        //   error={errors?.password}
-        //   {...register("password", { required: true })}
+      {/* Official Email */}
+      <Input
+        label={"Official Email"}
+        id="officialEmail"
+        type="email"
+        placeholder="Enter Company Email"
       />
 
-      <div className="flex justify-start">
-        <Checkbox />
+      {/* Company Phone Number */}
+      <Input
+        label={"Company Phone Number"}
+        id="companyPhone"
+        type="tel"
+        placeholder="Enter Company Phone Number"
+      />
 
-        <div className="py-3">
-          <p className="text-primary-500 text-xs font-normal mb-6">
-            By signing up you agree to our
-            <span className="text-secondary-100"> Terms of Service </span> and
-            <span className="text-secondary-100"> Privacy Policy </span>, which
-            outline your rights and obligations with respect to your use of the
-            Service and processing of your data.
-          </p>
-          <p className="text-primary-500 text-xs font-normal">
-            We’re committed to protecting your data privacy. Permissions are
-            part of our continuing compliance efforts.
-          </p>
-        </div>
-      </div>
       <div className="pt-8">
         <LinkButton
-          href="/create-account/company-details"
+          href="/create-account/subscription"
           variant="primary"
           className="w-full cursor-pointer text-[20px] font-bold whitespace-nowrap"
           //   isLoading={isSubmitting}
         >
-          Create Account
+          Submit
         </LinkButton>
       </div>
 

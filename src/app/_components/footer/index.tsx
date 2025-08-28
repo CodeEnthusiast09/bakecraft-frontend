@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:p-24 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
         <Image
           alt="logo"
-          src="/images/logo.png"
+          src="/images/logo-white.png"
           width={203}
           height={101.76}
           priority

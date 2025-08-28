@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
-import PlanCard from "./_components/plan-card";
+import PlanCard from "@/components/plan-card";
+import { usePlans } from "@/hooks/services/plan/usePlans";
 
 const PlansSection = () => {
+  const { data: plans, isPending } = usePlans();
+
   return (
     <div className="relative mt-10 xl:mt-[72px]">
       <Image
@@ -24,34 +29,8 @@ const PlansSection = () => {
           <br className="hidden md:block" /> and your team.
         </p>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
-          <PlanCard
-            name="1-month plan"
-            description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-            amount={25000}
-            interval="monthly"
-          />
-
-          <PlanCard
-            name="1-month plan"
-            description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-            amount={25000}
-            interval="monthly"
-          />
-
-          <PlanCard
-            name="1-month plan"
-            description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-            amount={25000}
-            interval="monthly"
-          />
-
-          <PlanCard
-            name="1-month plan"
-            description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-            amount={25000}
-            interval="monthly"
-          />
+        <div>
+          <PlanCard data={plans ?? []} isLoading={isPending} />
         </div>
       </div>
     </div>

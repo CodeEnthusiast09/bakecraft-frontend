@@ -31,12 +31,21 @@ export const SignUpForm = () => {
     //     onSubmit={handleSubmit(handleSignUp)}
     >
       <Input
-        label="Full Name"
+        label="First Name"
         type="text"
         placeholder="First name and last name"
         // error={errors?.firstName}
         // {...register("firstName", { required: true })}
       />
+
+      <Input
+        label="Last Name"
+        type="text"
+        placeholder="First name and last name"
+        // error={errors?.firstName}
+        // {...register("firstName", { required: true })}
+      />
+
       <Input
         label="Email"
         type="text"
@@ -44,6 +53,7 @@ export const SignUpForm = () => {
         // error={errors?.lastName}
         // {...register("lastName", { required: true })}
       />
+
       <Input
         label="Phone Number"
         type="text"
@@ -52,14 +62,6 @@ export const SignUpForm = () => {
         // {...register("email", { required: true })}
       />
 
-      <div className="relative">
-        {/* <MaskPasswordInput
-          label="Password"
-          placeholder="Enter Password"
-          error={errors?.password}
-          {...register("password", { required: true })}
-        /> */}
-      </div>
       <div className="pt-8">
         <LinkButton
           href="/create-account/password"

@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
-import PlanCard from "./_components/plan-card";
+import PlanCard from "@/components/plan-card";
+import Link from "next/link";
+import { usePlans } from "@/hooks/services/plan/usePlans";
 
 const PlansSection = () => {
+  const { data: plans, isPending } = usePlans();
+
   return (
     <div className="relative flex flex-col items-center">
       <div className="relative w-full h-[190vh] md:h-[110vh] xl:h-[50vh] bg-secondary-100">
@@ -18,16 +24,16 @@ const PlansSection = () => {
           }}
         />
 
-        <div className="absolute w-full flex items-center justify-between px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
-          <div>
+        <div className="absolute w-full flex items-center justify-between px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 z-50">
+          <Link href={"/"}>
             <Image
               alt="logo"
-              src="/images/logo.png"
+              src="/images/logo-white.png"
               width={93}
               height={46}
               className="w-auto h-10 sm:h-12 md:h-14 2xl:h-16"
             />
-          </div>
+          </Link>
 
           <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-normal">
             FAQs
@@ -44,34 +50,8 @@ const PlansSection = () => {
             <br className="hidden md:block" /> and your team.
           </p>
 
-          <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
-            <PlanCard
-              name="1-month plan"
-              description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-              amount={25000}
-              interval="monthly"
-            />
-
-            <PlanCard
-              name="1-month plan"
-              description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-              amount={25000}
-              interval="monthly"
-            />
-
-            <PlanCard
-              name="1-month plan"
-              description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-              amount={25000}
-              interval="monthly"
-            />
-
-            <PlanCard
-              name="1-month plan"
-              description="Perfect for teams that prefer monthly subscriptions. Unlimited access!"
-              amount={25000}
-              interval="monthly"
-            />
+          <div>
+            <PlanCard data={plans ?? []} isLoading={isPending} />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ProductSans } from "./fonts";
+import { ProviderWrappers } from "@/components/provider-wrappers";
 
 export const metadata: Metadata = {
   title: "BakeCraft",
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ProductSans.className}  antialiased`}>
-        {children}
+        <ProviderWrappers>{children}</ProviderWrappers>
       </body>
     </html>
   );

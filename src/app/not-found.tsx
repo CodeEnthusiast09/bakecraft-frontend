@@ -1,25 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import {
-  motion,
-  AnimatePresence,
-  easeInOut,
-  easeOut,
-  Variants,
-} from "framer-motion";
+import { motion, easeInOut, easeOut, Variants } from "framer-motion";
 
 export default function NotFound() {
   const [isOvenClicked, setIsOvenClicked] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(800);
-  const [screenHeight, setScreenHeight] = useState(600);
-
-  useEffect(() => {
-    // Safe access to window on client side
-    setScreenWidth(window.innerWidth);
-    setScreenHeight(window.innerHeight);
-  }, []);
 
   const handleOvenClick = () => {
     setIsOvenClicked(true);
@@ -182,32 +168,6 @@ export default function NotFound() {
           </motion.div>
         </motion.div>
       </main>
-
-      {/* Floating particles */}
-      <AnimatePresence>
-        {Array.from({ length: 6 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-amber-300/30 rounded-full"
-            initial={{
-              x: Math.random() * screenWidth,
-              y: screenHeight,
-              opacity: 0,
-            }}
-            animate={{
-              y: -100,
-              opacity: [0, 1, 0],
-              scale: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeOut",
-            }}
-          />
-        ))}
-      </AnimatePresence>
     </div>
   );
 }
