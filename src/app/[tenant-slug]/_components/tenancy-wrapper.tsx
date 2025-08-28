@@ -16,7 +16,7 @@ export const TenancyWrapper = ({
   // save basic tenant details to storage for later use
   useMemo(() => {
     saveToStorage(tenant);
-  }, [tenant]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [tenant]);
 
   return <>{children}</>;
 };

@@ -1,5 +1,5 @@
 "use client";
-import { useEscapeKeyListener, useOnClickOutside } from "hooks/common";
+import { useEscapeKeyListener, useOnClickOutside } from "@/hooks/common";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 type Option = {
@@ -20,7 +20,7 @@ type Props = {
   error?: {
     message?: string;
   };
-  placeholder?: string
+  placeholder?: string;
 };
 
 export const DropdownCheckbox = ({
@@ -34,7 +34,7 @@ export const DropdownCheckbox = ({
   showRequiredAsterik = false,
   closeInModal = false,
   error,
-  placeholder
+  placeholder,
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>(
@@ -66,11 +66,11 @@ export const DropdownCheckbox = ({
     if (defaultValue && onChange) {
       onChange(defaultValue);
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   useMemo(() => {
     if (value && value.length > 0) setSelectedOptions(value);
-  }, [value]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [value]);
 
   const getSelectionText = (selectedOptions: string[]) => {
     const selectedLabels = options
@@ -79,8 +79,9 @@ export const DropdownCheckbox = ({
 
     // show max 3 selected labels, if more than 3 show "x more"
     if (selectedLabels.length > 3) {
-      return `${selectedLabels.slice(0, 3).join(", ")} + ${selectedLabels.length - 3
-        } more`;
+      return `${selectedLabels.slice(0, 3).join(", ")} + ${
+        selectedLabels.length - 3
+      } more`;
     }
     return selectedLabels.join(", ");
   };
@@ -123,8 +124,9 @@ export const DropdownCheckbox = ({
           </svg>
         </button>
         <div
-          className={`${isOpen ? "block" : "hidden"
-            } z-10 ${className} absolute  w-full py-1 mt-1 bg-white shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm`}
+          className={`${
+            isOpen ? "block" : "hidden"
+          } z-10 ${className} absolute  w-full py-1 mt-1 bg-white shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm`}
         >
           {options.map((option) => (
             <label

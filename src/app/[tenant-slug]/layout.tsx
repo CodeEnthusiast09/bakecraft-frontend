@@ -2,18 +2,20 @@ import { serverRequest } from "@/services/server";
 import { redirect } from "next/navigation";
 import { Tenant } from "@/interfaces";
 import { TenancyWrapper } from "./_components/tenancy-wrapper";
+import { ReactNode } from "react";
 
-const PageLayout = async ({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { "tenant-slug": string };
-}) => {
+interface LayoutProps {
+  children: ReactNode;
+  params: Promise<{ "tenant-slug": string }>;
+}
+
+const PageLayout = async ({ children, params }: LayoutProps) => {
   // redirect("/maintenance");
 
   // get slug from url parameter
-  const tenantSlug = params?.["tenant-slug"];
+  const resolvedParams = await params;
+
+  const tenantSlug = resolvedParams?.["tenant-slug"];
 
   const response = await serverRequest.tenant.resolveTenantSlug(tenantSlug);
 
