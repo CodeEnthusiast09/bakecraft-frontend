@@ -12,14 +12,17 @@ const Footer = () => {
         className="transform scale-x-[-1] w-full h-[550px] md:h-[339px] object-cover"
       />
 
-      <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:p-24 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
-        <Image
-          alt="logo"
-          src="/images/logo-white.png"
-          width={203}
-          height={101.76}
-          priority
-        />
+      <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:py-24 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
+        <div className="relative w-[150px] md:w-[203px] h-auto aspect-[203/102]">
+          <Image
+            alt="logo"
+            src="/images/logo-white.png"
+            fill
+            sizes="(max-width: 768px) 150px, 203px"
+            priority
+            className="object-contain"
+          />
+        </div>
 
         <p className="text-white text-base text-center">
           42 Croissant Lane Butterville, CA 90210 USA

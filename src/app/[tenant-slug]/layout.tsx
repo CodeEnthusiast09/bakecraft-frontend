@@ -2,10 +2,9 @@ import { serverRequest } from "@/services/server";
 import { redirect } from "next/navigation";
 import { Tenant } from "@/interfaces";
 import { TenancyWrapper } from "./_components/tenancy-wrapper";
-import { ReactNode } from "react";
 
 interface LayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
   params: Promise<{ "tenant-slug": string }>;
 }
 
@@ -29,7 +28,9 @@ const PageLayout = async ({ children, params }: LayoutProps) => {
   const basicTenantDetails = {
     id: tenantDetails?.id,
     slug: tenantDetails?.slug,
-    company_name: tenantDetails?.company_name,
+    companyName: tenantDetails?.companyName,
+    companyEmail: tenantDetails?.companyEmail,
+    status: tenantDetails.status,
   };
 
   return (

@@ -7,6 +7,7 @@ import { clientRequest } from "@/services/client";
 import { InferType } from "yup";
 import { signInValidationSchema } from "@/validations";
 import { storeInLocalStorage } from "@/lib/localStorage";
+import { tenantPath } from "@/lib/tenantRouter";
 
 type MutationProp = { data: InferType<typeof signInValidationSchema> };
 
@@ -26,35 +27,21 @@ export const useSignIn = () => {
     },
     onSuccess: async (response: APIResponse) => {
       if (response?.success) {
+        console.log(response.data);
         const user: User = response?.data?.user;
 
-        // if account has been verified
-        // if (user && user.emailVerifiedAt) {
         toast.success(response?.message ?? "Welcome back");
         // NB:: token from response would have been saved to localStorage, see "src/services/client/client-request-gateway.ts"
 
         storeInLocalStorage("user-id", user?.id);
 
         if (returnUrl) {
-          router.push(returnUrl);
+          router.push(tenantPath(returnUrl, { tenantScoped: true }));
           return;
         }
 
         // redirect to dashboard
-        router.push("/dashboard");
-
-        // check if user has filled profile details
-        // if (user?.dateOfBirth && user?.gender) {
-        // redirect to dashboard
-        // router.push("/dashboard");
-        // } else {
-        //   // redirect to profile settings page
-        //   router.push("/profile/edit/bio-data?prompt=true");
-        // }
-
-        // } else {
-        //   toast.error("Please verify your email address.");
-        // }
+        router.replace(tenantPath("dashboard", { tenantScoped: true }));
       }
     },
     onError: (error: ApiError) => {

@@ -26,6 +26,7 @@ const service = (baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!) => {
       Accept: "application/json",
       "Access-Control-Allow-Methods": "*",
       "x-api-key": process.env.NEXT_PUBLIC_API_KEY || "",
+      "ngrok-skip-browser-warning": "true", //TODO: remove this when you're not using ngrok
     },
   });
 

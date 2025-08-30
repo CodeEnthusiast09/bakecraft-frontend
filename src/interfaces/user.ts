@@ -5,6 +5,7 @@ export interface User extends Base {
   lastName: string;
   phoneNumber: string;
   email: string;
+  image: string;
 }
 
 export interface Role extends Base {

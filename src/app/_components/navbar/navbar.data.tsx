@@ -1,13 +1,14 @@
 import { NavItem } from "@/interfaces/global";
-import { tenantPath } from "@/lib/tenantRouter";
 
 export const navItems: NavItem[] = [
   {
     name: "FAQs",
     href: "/faqs",
+    tenantScoped: false,
   },
   {
     name: "Log in",
-    href: tenantPath("/login"),
+    href: "/login",
+    tenantScoped: true,
   },
 ];

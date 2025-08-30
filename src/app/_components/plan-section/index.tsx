@@ -30,7 +30,7 @@ const PlansSection = () => {
         </p>
 
         <div>
-          <PlanCard data={plans ?? []} isLoading={isPending} />
+          <PlanCard data={plans ?? []} isLoading={isPending} page="home" />
         </div>
       </div>
     </div>

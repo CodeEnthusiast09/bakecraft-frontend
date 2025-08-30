@@ -2,6 +2,7 @@
 
 import { useDomIsReady } from "@/hooks/common";
 import { retrieveFromLocalStorage } from "@/lib/localStorage";
+import { tenantPath } from "@/lib/tenantRouter";
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 
@@ -13,7 +14,7 @@ export const Wrapper = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (isReady && token) {
-      router.replace(`/dashboard`);
+      router.replace(tenantPath("dashboard", { tenantScoped: true }));
     }
   }, [isReady, token]);
 

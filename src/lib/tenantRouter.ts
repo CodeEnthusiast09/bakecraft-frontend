@@ -1,19 +1,17 @@
-import { retrieveFromLocalStorage } from "@/lib/localStorage";
 import { Tenant } from "@/interfaces";
+import { retrieveFromLocalStorage } from "./localStorage";
 
-/**
- * Builds a route with the tenant slug automatically.
- * Falls back to plain path if no tenant is stored.
- */
-export const tenantPath = (path: string = ""): string => {
+export const tenantPath = (
+  path: string = "",
+  opts?: { tenantScoped?: boolean }
+): string => {
   const tenant: Tenant | null = retrieveFromLocalStorage("tenant");
 
-  if (tenant?.slug) {
-    // Ensure path always starts with "/"
-    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+
+  if (opts?.tenantScoped && tenant?.slug) {
     return `/${tenant.slug}${cleanPath}`;
   }
 
-  // fallback for routes that don't need a tenant
-  return path || "/";
+  return cleanPath || "/";
 };

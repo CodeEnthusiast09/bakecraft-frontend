@@ -51,7 +51,11 @@ const PlansSection = () => {
           </p>
 
           <div>
-            <PlanCard data={plans ?? []} isLoading={isPending} />
+            <PlanCard
+              data={plans ?? []}
+              isLoading={isPending}
+              page="subscription"
+            />
           </div>
         </div>
       </div>

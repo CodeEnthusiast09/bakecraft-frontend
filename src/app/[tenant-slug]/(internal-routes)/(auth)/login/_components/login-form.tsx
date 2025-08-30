@@ -3,57 +3,58 @@
 import { Input } from "@/components/input";
 import { LinkButton } from "@/components/link-button";
 import { MaskPasswordInput } from "@/components/mask-password-input";
-// import { MaskPasswordInput } from "components/mask-password-input";
-// import { Select } from "components/select";
 import Link from "next/link";
-// import { useSignUp } from "hooks";
-// import { SubmitHandler, useForm } from "react-hook-form";
-// import { signUpValidationSchema } from "validations";
-// import { InferType } from "yup";
-// import { yupResolver } from "@hookform/resolvers/yup";
+import { useSignIn } from "@/hooks/services";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { signInValidationSchema } from "@/validations";
+import { InferType } from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Button } from "@/components/button";
 
 export const LoginForm = () => {
-  //   const { mutate: signUp, isPending: isSubmitting } = useSignUp();
+  const { mutate: signUp, isPending: isSubmitting } = useSignIn();
 
-  //   const {
-  //     register,
-  //     handleSubmit,
-  //     formState: { errors },
-  //   } = useForm({
-  //     resolver: yupResolver(signUpValidationSchema),
-  //   });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signInValidationSchema),
+  });
 
-  //   const handleSignUp: SubmitHandler<
-  //     InferType<typeof signUpValidationSchema>
-  //   > = (data) => signUp({ data });
+  const handleSignUp: SubmitHandler<
+    InferType<typeof signInValidationSchema>
+  > = (data) => signUp({ data });
 
   return (
-    <form
-    //     onSubmit={handleSubmit(handleSignUp)}
-    >
+    <form onSubmit={handleSubmit(handleSignUp)}>
       <Input
-        label={"Email Address"}
-        id="officialEmail"
-        type="email"
-        placeholder="Enter Company Email"
+        label="Email Address"
+        type="text"
+        placeholder="Enter Email"
+        error={errors?.email}
+        {...register("email", { required: true })}
+        showRequiredAsterik
       />
 
       <MaskPasswordInput
-        label="Create your password"
+        label="Password"
+        type="text"
         placeholder="Enter Password"
-        //   error={errors?.password}
-        //   {...register("password", { required: true })}
+        error={errors?.password}
+        {...register("password", { required: true })}
+        showRequiredAsterik
       />
 
       <div className="pt-8">
-        <LinkButton
-          href="/create-account/password"
+        <Button
+          type="submit"
           variant="primary"
           className="w-full cursor-pointer text-[20px] font-bold whitespace-nowrap"
-          //   isLoading={isSubmitting}
+          isLoading={isSubmitting}
         >
           Log in
-        </LinkButton>
+        </Button>
       </div>
 
       <div className="text-lg py-3 flex justify-center items-center">

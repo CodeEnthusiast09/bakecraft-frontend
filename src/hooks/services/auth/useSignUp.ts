@@ -45,8 +45,7 @@ export const useSignUp = () => {
           return;
         }
 
-        // redirect to dashboard
-        router.push(tenantPath("/dashboard"));
+        router.push("/create-account/subscription");
 
         // check if user has filled profile details
         // if (user?.dateOfBirth && user?.gender) {

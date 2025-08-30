@@ -1,8 +1,23 @@
+"use client";
+
 import { LinkButton } from "@/components/link-button";
+import { retrieveFromLocalStorage } from "@/lib/localStorage";
+import { tenantPath } from "@/lib/tenantRouter";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const SubscriptionSuccess = () => {
+const CompletionPage = () => {
+  const [loginPath, setLoginPath] = useState("/login");
+
+  useEffect(() => {
+    const tenant = retrieveFromLocalStorage("tenant");
+
+    const path = tenantPath("login", { tenantScoped: true });
+
+    setLoginPath(path);
+  }, []);
+
   return (
     <div className="overflow-hidden h-screen">
       <div className="flex items-center justify-between px-4 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24">
@@ -37,7 +52,11 @@ const SubscriptionSuccess = () => {
           &nbsp; Management, with all the information you have provided.
         </p>
 
-        <LinkButton href="/" size="md" className="text-xl font-medium w-64">
+        <LinkButton
+          href={loginPath}
+          size="md"
+          className="text-xl font-medium w-64"
+        >
           Log in to your profile
         </LinkButton>
       </div>
@@ -45,4 +64,4 @@ const SubscriptionSuccess = () => {
   );
 };
 
-export default SubscriptionSuccess;
+export default CompletionPage;

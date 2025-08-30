@@ -3,8 +3,44 @@ import { PlanCardProps } from "./types";
 import { LinkButton } from "@/components/link-button";
 import { koboToNaira } from "@/lib/utils";
 import { Skeleton } from "@/components/skeleton";
+import { useInitiateSubscription } from "@/hooks/services";
+import { Button } from "../button";
+import { retrieveFromLocalStorage } from "@/lib/localStorage";
+import { Tenant } from "@/interfaces";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-const PlanCard = ({ data, isLoading = false }: PlanCardProps) => {
+const PlanCard = ({
+  data,
+  isLoading = false,
+  page = "home",
+}: PlanCardProps) => {
+  const { mutate, isPending: isSubmitting } = useInitiateSubscription();
+
+  const router = useRouter();
+
+  const handleSubscribe = (planCode: string) => {
+    const tenant: Tenant = retrieveFromLocalStorage("tenant");
+
+    if (!tenant?.slug || !tenant?.companyEmail) {
+      console.error("Tenant data missing in localStorage", tenant);
+
+      toast.error("Please complete your company details first.");
+
+      router.push("/create-account/company-details");
+
+      return;
+    }
+
+    mutate({
+      data: {
+        tenantSlug: tenant.slug,
+        planCode,
+        email: tenant.companyEmail,
+      },
+    });
+  };
+
   if (!data || data.length === 0) {
     return isLoading ? (
       <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
@@ -60,13 +96,24 @@ const PlanCard = ({ data, isLoading = false }: PlanCardProps) => {
             </p>
           </div>
 
-          <LinkButton
-            href="/create-account/subscription-success"
-            variant="primary"
-            className="text-[17px] py-2.5 cursor-pointer whitespace-nowrap"
-          >
-            Get {plan.name}
-          </LinkButton>
+          {page === "subscription" ? (
+            <Button
+              onClick={() => handleSubscribe(plan.planCode)}
+              isLoading={isSubmitting}
+              variant="primary"
+              className="text-[17px] cursor-pointer whitespace-nowrap"
+            >
+              Get {plan.name}
+            </Button>
+          ) : (
+            <Button
+              onClick={() => router.push("/create-account")}
+              variant="primary"
+              className="text-[17px] cursor-pointer whitespace-nowrap"
+            >
+              Start Your Journey
+            </Button>
+          )}
         </div>
       ))}
     </div>
