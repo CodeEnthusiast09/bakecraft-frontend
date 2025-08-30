@@ -1,7 +1,7 @@
 "use client";
 import { APIResponse, ApiError, Tenant, User } from "@/interfaces";
 import { useMutation } from "@tanstack/react-query";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { clientRequest } from "@/services/client";
 import { InferType } from "yup";
@@ -11,10 +11,8 @@ import { tenantPath } from "@/lib/tenantRouter";
 
 type MutationProp = { data: InferType<typeof signUpValidationSchema> };
 
-export const useSignUp = () => {
+export const useSignUp = (returnUrl?: string | null) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const returnUrl = searchParams?.get("returnUrl");
 
   const { mutate, isPending } = useMutation<
     APIResponse,
@@ -43,22 +41,9 @@ export const useSignUp = () => {
         if (returnUrl) {
           router.push(tenantPath(returnUrl));
           return;
+        } else {
+          router.push("/create-account/subscription");
         }
-
-        router.push("/create-account/subscription");
-
-        // check if user has filled profile details
-        // if (user?.dateOfBirth && user?.gender) {
-        // redirect to dashboard
-        // router.push("/dashboard");
-        // } else {
-        //   // redirect to profile settings page
-        //   router.push("/profile/edit/bio-data?prompt=true");
-        // }
-
-        // } else {
-        //   toast.error("Please verify your email address.");
-        // }
       }
     },
     onError: (error: ApiError) => {

@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             <main
               data-testid="main"
-              className="w-full min-h-screen overflow-y-auto py-5 px-wrapper md:wrapper-md xl:px-wrapper-xl 2xl:px-[1.5rem] bg-secondary-300"
+              className="w-full min-h-screen overflow-y-auto py-12 px-wrapper md:wrapper-md xl:px-wrapper-xl 2xl:px-[3.5rem] bg-secondary-300"
             >
               {/* main content  */}
               {children}

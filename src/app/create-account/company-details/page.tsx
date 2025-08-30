@@ -1,8 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import { CompanyDetailsForm } from "../_components/company-details-form";
 import Link from "next/link";
+import { use } from "react";
 
-export default function SignUp() {
+type PageProps = {
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export default function CompanyDetails({ searchParams }: PageProps) {
+  // Use React's `use` hook to resolve the Promise
+  const resolvedSearchParams = searchParams ? use(searchParams) : {};
+
+  const returnUrl =
+    typeof resolvedSearchParams?.returnUrl === "string"
+      ? resolvedSearchParams.returnUrl
+      : null;
+
   return (
     <div className="relative flex flex-col lg:flex-row items-center min-h-screen">
       {/* Mobile and Tablet background image */}
@@ -37,7 +52,7 @@ export default function SignUp() {
             Create Company Details
           </h1>
 
-          <CompanyDetailsForm />
+          <CompanyDetailsForm returnUrl={returnUrl} />
         </div>
       </div>
 

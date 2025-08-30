@@ -1,24 +1,68 @@
-export const InventoryIcon = ({ color = "#FAFAFA" }) => {
+// export const InventoryIcon = ({
+//   color = "#FAFAFA",
+//   size = 24,
+//   opacity = 0.4,
+// }: {
+//   color?: string;
+//   size?: number | string;
+//   opacity?: number | string;
+// }) => {
+//   return (
+//     <svg
+//       width={size}
+//       height={size}
+//       viewBox="0 0 13 15"
+//       fill="none"
+//       xmlns="http://www.w3.org/2000/svg"
+//     >
+//       <g opacity={opacity}>
+//         <path
+//           fillRule="evenodd"
+//           clipRule="evenodd"
+//           d="M10.8333 1.44446V3.61112C10.8333 4.40774 10.1855 5.05557 9.38889 5.05557H3.61111C2.8145 5.05557 2.16667 4.40774 2.16667 3.61112V1.44446C0.972111 1.44446 0 2.41657 0 3.61112V12.2778C0 13.4723 0.972111 14.4445 2.16667 14.4445H10.8333C12.0279 14.4445 13 13.4723 13 12.2778V3.61112C13 2.41657 12.0279 1.44446 10.8333 1.44446ZM2 7.00002H11V7.50002H2V7.00002ZM11 10H2V10.5H11V10Z"
+//           fill={color}
+//         />
+//         <path
+//           fillRule="evenodd"
+//           clipRule="evenodd"
+//           d="M9.38867 4.33333H3.61089C3.21223 4.33333 2.88867 4.0105 2.88867 3.61111V0.722222C2.88867 0.322833 3.21223 0 3.61089 0H9.38867C9.78734 0 10.1109 0.322833 10.1109 0.722222V3.61111C10.1109 4.0105 9.78734 4.33333 9.38867 4.33333Z"
+//           fill={color}
+//         />
+//       </g>
+//     </svg>
+//   );
+// };
+
+export const InventoryIcon = ({
+  size = 24,
+  opacity = 0.4,
+  className = "",
+}: {
+  size?: number | string;
+  opacity?: number | string;
+  className?: string;
+}) => {
   return (
     <svg
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 13 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
-      <g opacity="0.4">
+      <g opacity={opacity}>
         <path
           fillRule="evenodd"
           clipRule="evenodd"
           d="M10.8333 1.44446V3.61112C10.8333 4.40774 10.1855 5.05557 9.38889 5.05557H3.61111C2.8145 5.05557 2.16667 4.40774 2.16667 3.61112V1.44446C0.972111 1.44446 0 2.41657 0 3.61112V12.2778C0 13.4723 0.972111 14.4445 2.16667 14.4445H10.8333C12.0279 14.4445 13 13.4723 13 12.2778V3.61112C13 2.41657 12.0279 1.44446 10.8333 1.44446ZM2 7.00002H11V7.50002H2V7.00002ZM11 10H2V10.5H11V10Z"
-          fill={color}
+          fill="currentColor"
         />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
           d="M9.38867 4.33333H3.61089C3.21223 4.33333 2.88867 4.0105 2.88867 3.61111V0.722222C2.88867 0.322833 3.21223 0 3.61089 0H9.38867C9.78734 0 10.1109 0.322833 10.1109 0.722222V3.61111C10.1109 4.0105 9.78734 4.33333 9.38867 4.33333Z"
-          fill={color}
+          fill="currentColor"
         />
       </g>
     </svg>

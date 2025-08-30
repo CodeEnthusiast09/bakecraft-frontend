@@ -14,12 +14,13 @@ export const useLogout = (onSuccess?: Function) => {
     deleteFromLocalStorage("token");
     deleteFromLocalStorage("user-id");
     deleteFromLocalStorage("email");
+    deleteFromLocalStorage("tenant");
 
     setTimeout(() => {
       if (onSuccess) {
         onSuccess?.();
       } else {
-        // redirect to login page
+        // redirect to home page
         router.replace("/");
       }
     }, 1100);

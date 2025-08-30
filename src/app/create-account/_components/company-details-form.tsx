@@ -16,8 +16,12 @@ import {
 import { SignUpStorage } from "../_lib/signup-storage";
 import { Button } from "@/components/button";
 
-export const CompanyDetailsForm = () => {
-  const { mutate: signUp, isPending: isSubmitting } = useSignUp();
+type CompanyDetailsFormProps = {
+  returnUrl?: string | null;
+};
+
+export const CompanyDetailsForm = ({ returnUrl }: CompanyDetailsFormProps) => {
+  const { mutate: signUp, isPending: isSubmitting } = useSignUp(returnUrl);
 
   const {
     register,

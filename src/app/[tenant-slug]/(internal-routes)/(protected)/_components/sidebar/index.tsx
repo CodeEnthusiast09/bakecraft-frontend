@@ -22,13 +22,13 @@ export const Sidebar = () => {
   return (
     <aside className="w-full lg:w-[22vw] 2xl:w-[18vw] lg:h-screen relative xl:overflow-auto bg-secondary-100 print:hidden ">
       {/* Mobile devices */}
-      <div className="flex items-center gap-4 absolute left-0 z-20 lg:hidden lg:py-3 px-3">
+      <div className="flex items-center gap-4 absolute left-0 top-2 z-20 lg:hidden lg:py-3 px-3">
         <Button
           type="button"
           onClick={toggleNav}
           className="bg-transparent hover:bg-transparent"
         >
-          <FaBars className="text-[#091524]" />
+          <FaBars className="text-secondary-100 text-3xl" />
         </Button>
         <div className="px-2 py-1">
           <Image
@@ -44,7 +44,7 @@ export const Sidebar = () => {
       </div>
 
       <div
-        className={`px-5 xl:px-0 pt-6 pb-20  lg:pb-6 h-screen w-full overflow-auto md:w-[40vw] lg:w-[22vw] 2xl:w-[18vw] bg-secondary-100 z-50 border-r border-r-[#E4E4E7] fixed lg:left-0 transition-all duration-500 top-0 ${
+        className={`px-0 pt-6 pb-20  lg:pb-6 h-screen w-full overflow-auto md:w-[40vw] lg:w-[22vw] 2xl:w-[18vw] bg-secondary-100 z-50 border-r border-r-[#E4E4E7] fixed lg:left-0 transition-all duration-500 top-0 ${
           showNav ? "left-0" : " -left-[150vw]"
         }  lg:block`}
       >

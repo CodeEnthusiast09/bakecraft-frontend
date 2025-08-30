@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
-import { FaUser } from "react-icons/fa";
+import { FaBell, FaUser } from "react-icons/fa";
 import { SlArrowDown } from "react-icons/sl";
 import { Skeleton } from "@/components/skeleton";
 import { useEscapeKeyListener, useOnClickOutside } from "@/hooks/common";
@@ -11,6 +11,8 @@ import { Button } from "@/components/button";
 import { useLogout } from "@/hooks/services";
 import Image from "next/image";
 import { CiUser } from "react-icons/ci";
+import { div } from "framer-motion/client";
+import { IoIosSearch } from "react-icons/io";
 // import { ChangePassword } from "./change-password-modal";
 
 export const Header = () => {
@@ -29,13 +31,20 @@ export const Header = () => {
 
   return (
     <header className="print:hidden">
-      <nav className="bg-white px-5 lg:px-10 border-b border-b-[#E4E4E7] py-2">
+      <nav className="bg-secondary-300 px-5 lg:px-10 border-b border-b-[#E4E4E7] py-2 lg:py-4">
         <div className={`flex justify-end items-center lg:py-1`}>
           <div className="flex items-center">
             {/* user icon that has a dropdown menu of logout */}
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative flex items-center gap-7" ref={dropdownRef}>
+              <div className="hidden h-[56px] pr-8 md:flex items-center gap-7 border-r-2 border-primary-100">
+                <IoIosSearch
+                  size={24}
+                  className="text-primary-100 cursor-pointer"
+                />
+                <FaBell size={24} className="text-primary-100 cursor-pointer" />
+              </div>
               <button
-                className="flex items-center gap-x-1 xl:gap-x-3 text-black focus:ring-2 focus:outline-none"
+                className="flex items-center gap-x-1 xl:gap-x-3 focus:ring-2 focus:outline-none"
                 onClick={handleDropdown}
                 aria-haspopup="menu"
                 aria-expanded={showDropdown ? "true" : "false"}
@@ -46,25 +55,27 @@ export const Header = () => {
                   <Image
                     src={userDetails?.image}
                     alt={`${userDetails?.firstName} ${userDetails?.lastName}`}
-                    width={28}
-                    height={28}
+                    width={44}
+                    height={44}
                     className="rounded-full"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-7 w-7 rounded-full bg-gray-200">
-                    <FaUser className="h-3 w-3 text-black" />
+                  <div className="border-2 border-primary-100 rounded-full">
+                    <div className="flex items-center justify-center h-11 w-11 rounded-full m-1 bg-primary-100">
+                      <FaUser className="h-7 w-7 text-background" />
+                    </div>
                   </div>
                 )}
 
                 {userDetails ? (
                   <div className="flex gap-x-2 items-center font-medium">
-                    <span className="text-xs">
+                    <span className="text-sm">
                       {userDetails?.firstName}{" "}
                       <span className="hidden md:inline">
                         {userDetails?.lastName}
                       </span>
                     </span>
-                    <SlArrowDown className="text-xs" />
+                    <SlArrowDown className="text-sm" />
                   </div>
                 ) : (
                   <div>

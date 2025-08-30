@@ -91,20 +91,74 @@ export const sideBarModules: SidebarModule[] = [
   {
     name: "Inventory",
     icon: {
-      active: <InventoryIcon color="#1e3653" />,
+      active: <InventoryIcon />,
       default: <InventoryIcon />,
     },
-    href: "/inventory",
-    tenantScoped: true,
+    items: [
+      {
+        name: "Dashboard",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/inventory/raw",
+        tenantScoped: true,
+      },
+      {
+        name: "Dash",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/inventory/raw1",
+        tenantScoped: true,
+      },
+      {
+        name: "board",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/inventory/raw2",
+        tenantScoped: true,
+      },
+    ],
   },
   {
     name: "Accounts",
     icon: {
-      active: <AccountsIcon color="#1e3653" />,
+      active: <AccountsIcon />,
       default: <AccountsIcon />,
     },
-    href: "/accounts",
-    tenantScoped: true,
+    items: [
+      {
+        name: "Dashboard",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/accounts/raw",
+        tenantScoped: true,
+      },
+      {
+        name: "Dash",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/accounts/raw1",
+        tenantScoped: true,
+      },
+      {
+        name: "board",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/accounts/raw2",
+        tenantScoped: true,
+      },
+    ],
   },
   {
     name: "Customers",
@@ -112,8 +166,35 @@ export const sideBarModules: SidebarModule[] = [
       active: <FaUsers size={24} />,
       default: <FaUsers size={24} opacity={0.4} />,
     },
-    href: "/customers",
-    tenantScoped: true,
+    items: [
+      {
+        name: "Dashboard",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/customers/raw",
+        tenantScoped: true,
+      },
+      {
+        name: "Dash",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/customers/raw1",
+        tenantScoped: true,
+      },
+      {
+        name: "board",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/customers/raw2",
+        tenantScoped: true,
+      },
+    ],
   },
   {
     name: "Teams",
@@ -121,26 +202,107 @@ export const sideBarModules: SidebarModule[] = [
       active: <FaUsers size={24} />,
       default: <FaUsers size={24} opacity={0.4} />,
     },
-    href: "/teams",
-    tenantScoped: true,
+    items: [
+      {
+        name: "Dashboard",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/teams/raw",
+        tenantScoped: true,
+      },
+      {
+        name: "Dash",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/teams/raw1",
+        tenantScoped: true,
+      },
+      {
+        name: "board",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/teams/raw2",
+        tenantScoped: true,
+      },
+    ],
   },
   {
     name: "Reports",
     icon: {
-      active: <ReportsIcon color="#1e3653" />,
+      active: <ReportsIcon />,
       default: <ReportsIcon />,
     },
-    href: "/reports",
-    tenantScoped: true,
+    items: [
+      {
+        name: "Dashboard",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/reports/raw",
+        tenantScoped: true,
+      },
+      {
+        name: "Dash",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/reports/raw1",
+        tenantScoped: true,
+      },
+      {
+        name: "board",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/reports/raw2",
+        tenantScoped: true,
+      },
+    ],
   },
   {
     name: "Approvals",
     icon: {
-      active: <ApprovalsIcon color="#1e3653" />,
+      active: <ApprovalsIcon />,
       default: <ApprovalsIcon />,
     },
-    href: "/approvals",
-    tenantScoped: true,
+    items: [
+      {
+        name: "Dashboard",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/approvals/raw",
+        tenantScoped: true,
+      },
+      {
+        name: "Dash",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/approvals/raw1",
+        tenantScoped: true,
+      },
+      {
+        name: "board",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/approvals/raw2",
+        tenantScoped: true,
+      },
+    ],
   },
   {
     name: "Settings",
@@ -148,7 +310,34 @@ export const sideBarModules: SidebarModule[] = [
       active: <FaCog size={24} />,
       default: <FaCog size={24} opacity={0.4} />,
     },
-    href: "/settings",
-    tenantScoped: true,
+    items: [
+      {
+        name: "Dashboard",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/settings/raw",
+        tenantScoped: true,
+      },
+      {
+        name: "Dash",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/settings/raw1",
+        tenantScoped: true,
+      },
+      {
+        name: "board",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/settings/raw2",
+        tenantScoped: true,
+      },
+    ],
   },
 ];

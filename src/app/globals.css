@@ -11,6 +11,12 @@
   --secondary-100: #9e7c60;
   --secondary-200: #00d05b;
   --secondary-300: #f7f8fb;
+
+  --spacing-wrapper: 1rem;
+  --spacing-wrapper-md: 1.7rem;
+  --spacing-wrapper-lg: 3.7rem;
+  --spacing-wrapper-xl: 4rem;
+  --spacing-wrapper-4xl: 15rem;
 }
 
 @theme inline {
@@ -24,6 +30,12 @@
   --color-secondary-100: var(--secondary-100);
   --color-secondary-200: var(--secondary-200);
   --color-secondary-300: var(--secondary-300);
+
+  --spacing-wrapper: var(--spacing-wrapper);
+  --spacing-wrapper-md: var(--spacing-wrapper-md);
+  --spacing-wrapper-lg: var(--spacing-wrapper-lg);
+  --spacing-wrapper-xl: var(--spacing-wrapper-xl);
+  --spacing-wrapper-4xl: var(--spacing-wrapper-4xl);
 }
 
 body {
