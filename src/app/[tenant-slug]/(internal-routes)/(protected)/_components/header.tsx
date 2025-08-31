@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
-import { FaBell, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { SlArrowDown } from "react-icons/sl";
 import { Skeleton } from "@/components/skeleton";
 import { useEscapeKeyListener, useOnClickOutside } from "@/hooks/common";
@@ -10,9 +10,8 @@ import { useAccount } from "@/hooks/services/account";
 import { Button } from "@/components/button";
 import { useLogout } from "@/hooks/services";
 import Image from "next/image";
-import { CiUser } from "react-icons/ci";
-import { div } from "framer-motion/client";
-import { IoIosSearch } from "react-icons/io";
+import { NotificationModal } from "./notification-modal";
+import { ExpandableSearch } from "@/components/search-box/expandable-search-box";
 // import { ChangePassword } from "./change-password-modal";
 
 export const Header = () => {
@@ -36,12 +35,13 @@ export const Header = () => {
           <div className="flex items-center">
             {/* user icon that has a dropdown menu of logout */}
             <div className="relative flex items-center gap-7" ref={dropdownRef}>
-              <div className="hidden h-[56px] pr-8 md:flex items-center gap-7 border-r-2 border-primary-100">
-                <IoIosSearch
-                  size={24}
-                  className="text-primary-100 cursor-pointer"
+              <div className="hidden h-[56px] pr-8 md:flex items-center border-r-2 border-primary-100">
+                <ExpandableSearch
+                  trigerButtonClass="border-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2 bg-transparent hover:bg-transparent"
+                  triggerButtonVariant="transparent"
                 />
-                <FaBell size={24} className="text-primary-100 cursor-pointer" />
+
+                <NotificationModal />
               </div>
               <button
                 className="flex items-center gap-x-1 xl:gap-x-3 focus:ring-2 focus:outline-none"
