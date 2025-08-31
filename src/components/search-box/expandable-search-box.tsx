@@ -30,7 +30,7 @@ export const ExpandableSearch = ({
           <motion.div
             key="searchbox"
             initial={{ width: 40, opacity: 0 }}
-            animate={{ width: 388, opacity: 1 }} // 72 * 4 = 288px
+            animate={{ width: 368, opacity: 1 }}
             exit={{ width: 40, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="rounded-md px-2 w-72 md:w-96 bg-secondary-300"
