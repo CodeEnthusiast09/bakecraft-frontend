@@ -6,15 +6,22 @@ import {
   requestActivationEmailValidationSchema,
   resetPasswordValidationSchema,
   signInValidationSchema,
-  signUpValidationSchema,
+  tenantSignUpValidationSchema,
+  userSignUpValidationSchema,
 } from "@/validations";
 
 const requestGateway = clientRequestGateway();
 
 export const authClientRequests = {
-  signUp: (payload: InferType<typeof signUpValidationSchema>) =>
+  tenantSignUp: (payload: InferType<typeof tenantSignUpValidationSchema>) =>
     requestGateway.post({
-      url: `/tenants`,
+      url: `tenants`,
+      payload,
+    }),
+
+  userSignUp: (payload: InferType<typeof userSignUpValidationSchema>) =>
+    requestGateway.post({
+      url: `auth/signup`,
       payload,
     }),
 
@@ -26,7 +33,7 @@ export const authClientRequests = {
 
   forgotPassword: (payload: InferType<typeof forgotPasswordValidationSchema>) =>
     requestGateway.post({
-      url: `auth/staff/forgot-password`,
+      url: `auth/forgot-password`,
       payload,
     }),
 
@@ -34,7 +41,7 @@ export const authClientRequests = {
     payload: InferType<typeof requestActivationEmailValidationSchema>
   ) =>
     requestGateway.post({
-      url: `auth/staff/request-token`,
+      url: `auth/request-token`,
       payload,
     }),
 
@@ -42,25 +49,25 @@ export const authClientRequests = {
     payload: InferType<typeof activateAccountValidationSchema>
   ) =>
     requestGateway.post({
-      url: `auth/staff/set-password`,
+      url: `auth/set-password`,
       payload,
     }),
 
   resetPassword: (payload: InferType<typeof resetPasswordValidationSchema>) =>
     requestGateway.post({
-      url: `auth/staff/reset-password`,
+      url: `auth/reset-password`,
       payload,
     }),
 
   verifyActivateAccount: (payload: { token: string; userId: string }) =>
     requestGateway.post({
-      url: `auth/staff/resolve-token`,
+      url: `auth/resolve-token`,
       payload,
     }),
 
   verifyForgotPassword: (payload: { token: string; userId: string }) =>
     requestGateway.post({
-      url: `auth/staff/resolve-forgot-password`,
+      url: `auth/resolve-forgot-password`,
       payload,
     }),
 

@@ -21,7 +21,7 @@ export const NotificationModal = () => {
     >
       <div className="flex flex-col gap-3">
         <p className="text-sm text-gray-600">No new notifications 🎉</p>
-        {/* Later you can map real notifications here */}
+        {/* Map real notifications here */}
       </div>
     </Modal>
   );

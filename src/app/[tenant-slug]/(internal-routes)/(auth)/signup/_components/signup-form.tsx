@@ -1,39 +1,68 @@
 "use client";
 
-import { Checkbox } from "@/components/input/checkbox";
-import { LinkButton } from "@/components/link-button";
-import { MaskPasswordInput } from "@/components/mask-password-input";
-import Link from "next/link";
-import { useSignUp } from "@/hooks/services";
+import { Input } from "@/components/input";
+import { useUserSignUp } from "@/hooks/services";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { signUpValidationSchema } from "@/validations";
+import { userSignUpValidationSchema } from "@/validations";
 import { InferType } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@/components/button";
-import {
-  PasswordStepData,
-  passwordStepSchema,
-} from "../_validations/signup-validation";
-import { SignUpStorage } from "../_lib/signup-storage";
+import { MaskPasswordInput } from "@/components/mask-password-input";
+import { Checkbox } from "@/components/input/checkbox";
 
-export const PasswordForm = () => {
-  //   const { mutate: signUp, isPending: isSubmitting } = useSignUp();
+export const SignUpForm = () => {
+  const { mutate: signUp, isPending: isSubmitting } = useUserSignUp();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(passwordStepSchema),
+    resolver: yupResolver(userSignUpValidationSchema),
   });
 
-  const handleContinue: SubmitHandler<PasswordStepData> = (data) => {
-    SignUpStorage.save({ password: data });
-    window.location.href = "/create-account/company-details";
-  };
+  const handleSignUp: SubmitHandler<
+    InferType<typeof userSignUpValidationSchema>
+  > = (data) => signUp({ data });
 
   return (
-    <form onSubmit={handleSubmit(handleContinue)}>
+    <form onSubmit={handleSubmit(handleSignUp)}>
+      <Input
+        label="First Name"
+        type="text"
+        placeholder="First name"
+        error={errors?.firstName}
+        {...register("firstName", { required: true })}
+        showRequiredAsterik
+      />
+
+      <Input
+        label="Last Name"
+        type="text"
+        placeholder="Last name"
+        error={errors?.lastName}
+        {...register("lastName", { required: true })}
+        showRequiredAsterik
+      />
+
+      <Input
+        label="Email"
+        type="text"
+        placeholder="you@example.com"
+        error={errors?.email}
+        {...register("email", { required: true })}
+        showRequiredAsterik
+      />
+
+      <Input
+        label="Phone Number"
+        type="text"
+        placeholder="Enter phone number"
+        error={errors?.phoneNumber}
+        {...register("phoneNumber", { required: true })}
+        showRequiredAsterik
+      />
+
       <MaskPasswordInput
         label="Create your password"
         placeholder="Enter Password"
@@ -42,13 +71,13 @@ export const PasswordForm = () => {
         showRequiredAsterik
       />
 
-      {/* <MaskPasswordInput
-        label="Create your password"
+      <MaskPasswordInput
+        label="Confirm your password"
         placeholder="Enter Password"
         error={errors?.passwordConfirmation}
         {...register("passwordConfirmation", { required: true })}
         showRequiredAsterik
-      /> */}
+      />
 
       <div className="flex justify-start">
         <Checkbox />
@@ -67,14 +96,15 @@ export const PasswordForm = () => {
           </p>
         </div>
       </div>
+
       <div className="pt-8">
         <Button
           type="submit"
           variant="primary"
           className="w-full cursor-pointer text-[20px] font-bold whitespace-nowrap"
-          //   isLoading={isSubmitting}
+          isLoading={isSubmitting}
         >
-          Create Account
+          Continue
         </Button>
       </div>
 

@@ -6,4 +6,6 @@ export type DashboardCardProps = {
   }>;
   title?: string;
   description?: string;
+  href: string;
+  tenantScoped?: boolean;
 };

@@ -2,12 +2,9 @@
 import { Button } from "@/components/button";
 import Image from "next/image";
 import { useState } from "react";
-import { FaBars, FaHome, FaTimes } from "react-icons/fa";
-import { TfiHome } from "react-icons/tfi";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { sideBarModules } from "@/lib/sidebar-data";
 import { NavbarModule } from "./sidebar-module";
-import { NavbarItem } from "./sidebar-item";
-import Link from "next/link";
 import { useSearchSidebarFilter } from "@/hooks/common";
 
 export const Sidebar = () => {
@@ -28,15 +25,15 @@ export const Sidebar = () => {
           onClick={toggleNav}
           className="bg-transparent hover:bg-transparent"
         >
-          <FaBars className="text-secondary-100 text-3xl" />
+          <FaBars className="text-secondary-100 text-xl" />
         </Button>
         <div className="px-2 py-1">
           <Image
-            src="/images/logo-white.png"
+            src="/images/logo.png"
             alt="Logo"
             priority={true}
             loading="eager"
-            className="w-24 h-8"
+            className="w-20 h-8"
             width={100}
             height={35}
           />

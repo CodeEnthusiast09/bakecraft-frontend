@@ -1,4 +1,5 @@
-export * from "./useSignUp"
+export * from "./useTenantSignUp";
+export * from "./useUserSignUp";
 export * from "./useSignIn";
 export * from "./useForgotPassword";
 export * from "./useResetPassword";

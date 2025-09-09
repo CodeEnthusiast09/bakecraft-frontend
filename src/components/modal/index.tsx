@@ -47,7 +47,7 @@ export const Modal = ({
         style={customStyles}
         contentLabel={contentLabel}
         className="justify-center items-start flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ease-linear transition-all duration-150  modal"
-        overlayClassName="fixed inset-0 w-full h-full bg-black/50 z-50 cursor-pointer modal-overlay "
+        overlayClassName="fixed inset-0 w-full h-full bg-black/50 backdrop-blur-sm z-50 cursor-pointer modal-overlay "
       >
         <div className="relative w-auto mx-auto cursor-default">
           {/*content*/}

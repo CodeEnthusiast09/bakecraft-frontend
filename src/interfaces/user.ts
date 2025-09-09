@@ -10,8 +10,11 @@ export interface User extends Base {
 
 export interface Role extends Base {
   name: string;
-  description?: string;
-  permissions?: Permission[];
+  users?: User[];
+}
+
+export interface Department extends Base {
+  name: string;
   users?: User[];
 }
 

@@ -1,58 +1,27 @@
 "use client";
 
 import { Input } from "@/components/input";
-import { LinkButton } from "@/components/link-button";
-import Link from "next/link";
-import { useSignUp } from "@/hooks/services";
+import { useTenantSignUp } from "@/hooks/services";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { signUpValidationSchema } from "@/validations";
+import { tenantSignUpValidationSchema } from "@/validations";
 import { InferType } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  SignUpPayload,
-  TenantStepData,
-  tenantStepSchema,
-} from "../_validations/signup-validation";
-import { SignUpStorage } from "../_lib/signup-storage";
 import { Button } from "@/components/button";
 
-type CompanyDetailsFormProps = {
-  returnUrl?: string | null;
-};
-
-export const CompanyDetailsForm = ({ returnUrl }: CompanyDetailsFormProps) => {
-  const { mutate: signUp, isPending: isSubmitting } = useSignUp(returnUrl);
+export const CompanyDetailsForm = () => {
+  const { mutate: signUp, isPending: isSubmitting } = useTenantSignUp();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(tenantStepSchema),
+    resolver: yupResolver(tenantSignUpValidationSchema),
   });
 
-  const handleSignUp: SubmitHandler<TenantStepData> = (tenantData) => {
-    // Save tenant step
-    SignUpStorage.save({ tenant: tenantData });
-
-    // Rebuild full payload
-    const draft = SignUpStorage.get();
-    if (!draft?.user || !draft?.password || !draft?.tenant) {
-      console.error("Missing signup data in storage", draft);
-      return;
-    }
-
-    const payload: SignUpPayload = {
-      user: { ...draft.user, ...draft.password },
-      tenant: draft.tenant,
-    };
-
-    // Call API
-    signUp({ data: payload });
-
-    // Clear draft after submit
-    SignUpStorage.clear();
-  };
+  const handleSignUp: SubmitHandler<
+    InferType<typeof tenantSignUpValidationSchema>
+  > = (data) => signUp({ data });
 
   return (
     <form onSubmit={handleSubmit(handleSignUp)}>
@@ -65,16 +34,6 @@ export const CompanyDetailsForm = ({ returnUrl }: CompanyDetailsFormProps) => {
         showRequiredAsterik
       />
 
-      {/* Company Address */}
-      {/* <Input
-        label={"Company Address"}
-        placeholder="Enter Company Address"
-        error={errors?.companyAddress}
-        {...register("companyAddress", { required: true })}
-        showRequiredAsterik
-      /> */}
-
-      {/* Official Email */}
       <Input
         label="Official Email"
         type="text"
@@ -84,7 +43,6 @@ export const CompanyDetailsForm = ({ returnUrl }: CompanyDetailsFormProps) => {
         showRequiredAsterik
       />
 
-      {/* Company Phone Number */}
       <Input
         label={"Company Phone Number"}
         type="text"

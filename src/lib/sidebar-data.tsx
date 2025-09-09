@@ -202,35 +202,8 @@ export const sideBarModules: SidebarModule[] = [
       active: <FaUsers size={24} />,
       default: <FaUsers size={24} opacity={0.4} />,
     },
-    items: [
-      {
-        name: "Dashboard",
-        icon: {
-          active: <FaArrowsRotate size={24} />,
-          default: <FaArrowsRotate size={24} opacity={0.4} />,
-        },
-        href: "/teams/raw",
-        tenantScoped: true,
-      },
-      {
-        name: "Dash",
-        icon: {
-          active: <FaArrowsRotate size={24} />,
-          default: <FaArrowsRotate size={24} opacity={0.4} />,
-        },
-        href: "/teams/raw1",
-        tenantScoped: true,
-      },
-      {
-        name: "board",
-        icon: {
-          active: <FaArrowsRotate size={24} />,
-          default: <FaArrowsRotate size={24} opacity={0.4} />,
-        },
-        href: "/teams/raw2",
-        tenantScoped: true,
-      },
-    ],
+    href: "/teams",
+    tenantScoped: true,
   },
   {
     name: "Reports",

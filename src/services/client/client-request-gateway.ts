@@ -69,11 +69,7 @@ const service = (baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!) => {
       if (error?.response === undefined) {
         return Promise.reject("No internet connection");
       } else {
-        const errors = error?.response?.data;
-
-        // @ts-ignore
-        let serverErrors = errors?.errors;
-
+        const errors = error?.response?.data as any;
         const statusCode = error?.response?.status;
 
         if (statusCode === 500 || statusCode === 405) {
@@ -82,8 +78,13 @@ const service = (baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!) => {
           if (process.env.NODE_ENV === "development") {
             console.log(error);
           }
-        } else if (serverErrors) {
-          // loop through serverErrors object and display value of each key
+        } else if (errors?.message && Array.isArray(errors.message)) {
+          errors.message.forEach((errorMsg: string) => {
+            toast.error(errorMsg);
+          });
+        } else if (errors?.errors) {
+          let serverErrors = errors.errors;
+
           Object.keys(serverErrors).forEach((key) => {
             const error = serverErrors[key];
             if (Array.isArray(error)) {
@@ -100,16 +101,16 @@ const service = (baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!) => {
               );
             }
           });
-        } else {
-          // @ts-ignore
-          if (errors?.message !== "Appraisal not added yet!") {
-            toast.error(
-              // @ts-ignore
-              (errors?.error || errors?.message) ??
-                "Something went wrong! Please try again."
-            );
+        } else if (errors?.message && typeof errors.message === "string") {
+          if (errors.message !== "Appraisal not added yet!") {
+            toast.error(errors.message);
           }
+        } else {
+          toast.error(
+            errors?.error || "Something went wrong! Please try again."
+          );
         }
+
         return Promise.reject(errors);
       }
     }

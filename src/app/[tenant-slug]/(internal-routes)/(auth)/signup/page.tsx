@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PasswordForm } from "../_components/password-form";
+import { SignUpForm } from "./_components/signup-form";
 import Link from "next/link";
 
 export default function SignUp() {
@@ -29,15 +29,15 @@ export default function SignUp() {
             src="/images/logo.png"
             width={93}
             height={46}
-            className=" hidden lg:block w-auto h-12 sm:h-12 md:h-14 2xl:h-16 absolute top-5 left-12 xl:left-40"
+            className=" hidden lg:block w-auto h-12 sm:h-12 md:h-14 2xl:h-16 absolute top-5 left-12 xl:left-28 2xl:left-40"
           />
         </Link>
-        <div className="w-full max-w-md mx-4 p-4 xl:max-w-full xl:mx-36 bg-white py-12 rounded-xl border-none">
-          <h1 className="text-2xl lg:text-3xl text-primary-100 font-semibold mb-5">
-            Create Password
+        <div className="w-full max-w-md mx-4 p-4 xl:max-w-full xl:mx-24 2xl:mx-36 bg-white py-12 rounded-xl border-none">
+          <h1 className="text-2xl lg:text-3xl text-primary-100 font-semibold my-9">
+            Create Account
           </h1>
 
-          <PasswordForm />
+          <SignUpForm />
         </div>
       </div>
 

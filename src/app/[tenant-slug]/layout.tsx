@@ -22,14 +22,14 @@ const PageLayout = async ({ children, params }: LayoutProps) => {
     redirect("/error/not-found");
   }
 
-  const tenantDetails: Tenant = response?.data;
+  const tenantDetails = response?.data;
 
   // get basic shop details that would be saved to storage
   const basicTenantDetails = {
     id: tenantDetails?.id,
     slug: tenantDetails?.slug,
-    companyName: tenantDetails?.companyName,
-    companyEmail: tenantDetails?.companyEmail,
+    companyName: tenantDetails?.company_name,
+    companyEmail: tenantDetails?.company_email,
     status: tenantDetails.status,
   };
 

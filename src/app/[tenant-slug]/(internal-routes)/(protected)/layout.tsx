@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="relative">
         <div className="lg:flex">
           <Sidebar />
-          <div className="w-full lg:w-3/4 2xl:w-[82vw] block relative">
+          <div className="w-full lg:w-4/5 2xl:w-[82vw] block relative">
             <Header />
 
             <main

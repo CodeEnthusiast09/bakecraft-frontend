@@ -27,7 +27,6 @@ export const useSignIn = () => {
     },
     onSuccess: async (response: APIResponse) => {
       if (response?.success) {
-        console.log(response.data);
         const user: User = response?.data?.user;
 
         toast.success(response?.message ?? "Welcome back");

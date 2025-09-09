@@ -44,7 +44,7 @@ export const Header = () => {
                 <NotificationModal />
               </div>
               <button
-                className="flex items-center gap-x-1 xl:gap-x-3 focus:ring-2 focus:outline-none"
+                className="flex items-center gap-x-1 xl:gap-x-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-200 focus-visible:ring-offset-2"
                 onClick={handleDropdown}
                 aria-haspopup="menu"
                 aria-expanded={showDropdown ? "true" : "false"}
@@ -61,8 +61,8 @@ export const Header = () => {
                   />
                 ) : (
                   <div className="border-2 border-primary-100 rounded-full">
-                    <div className="flex items-center justify-center h-11 w-11 rounded-full m-1 bg-primary-100">
-                      <FaUser className="h-7 w-7 text-background" />
+                    <div className="flex items-center justify-center h-7 w-7 rounded-full m-1 bg-primary-100">
+                      <FaUser className="h-4 w-4 text-background" />
                     </div>
                   </div>
                 )}
@@ -88,7 +88,7 @@ export const Header = () => {
                 )}
               </button>
               {showDropdown && (
-                <div className="z-40 absolute -right-3 md:right-0 w-48 mt-2 origin-top-right bg-white  border border-gray-200 divide-gray-100 rounded-md shadow-lg outline-none divide-y">
+                <div className="z-40 absolute top-14 -right-3 md:right-0 w-48 mt-2 origin-top-right bg-white  border border-gray-200 divide-gray-100 rounded-md shadow-lg outline-none divide-y">
                   <div className="">
                     {/* <LinkButton
                       href="/profile/bio-data"

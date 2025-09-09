@@ -1,8 +1,10 @@
-import Image from "next/image";
-import { SignUpForm } from "./_components/create-account-form";
-import Link from "next/link";
+"use client";
 
-export default function SignUp() {
+import Image from "next/image";
+import Link from "next/link";
+import { CompanyDetailsForm } from "./_components/company-details-form";
+
+export default function CompanyDetails() {
   return (
     <div className="relative flex flex-col lg:flex-row items-center min-h-screen">
       {/* Mobile and Tablet background image */}
@@ -34,10 +36,10 @@ export default function SignUp() {
         </Link>
         <div className="w-full max-w-md mx-4 p-4 xl:max-w-full xl:mx-36 bg-white py-12 rounded-xl border-none">
           <h1 className="text-2xl lg:text-3xl text-primary-100 font-semibold my-9">
-            Create Account
+            Create Company Details
           </h1>
 
-          <SignUpForm />
+          <CompanyDetailsForm />
         </div>
       </div>
 
