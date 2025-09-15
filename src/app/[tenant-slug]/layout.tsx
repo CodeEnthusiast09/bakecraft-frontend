@@ -1,7 +1,7 @@
 import { serverRequest } from "@/services/server";
 import { redirect } from "next/navigation";
 import { Tenant } from "@/interfaces";
-import { TenancyWrapper } from "./_components/tenancy-wrapper";
+import { TenancyWrapper } from "./(internal-routes)/_components/tenancy-wrapper";
 
 interface LayoutProps {
   children: React.ReactNode;

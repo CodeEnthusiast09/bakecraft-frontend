@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "components/button";
-import { useRequestActivationEmail } from "hooks/services";
-import { retrieveFromLocalStorage } from "lib/localStorage";
+import { Button } from "@/components/button";
+import { useRequestActivationEmail } from "@/hooks/services";
+import { retrieveFromLocalStorage } from "@/lib/localStorage";
 
 export const ResendEmailButton = () => {
   const { mutate, isPending: isSubmitting } = useRequestActivationEmail();

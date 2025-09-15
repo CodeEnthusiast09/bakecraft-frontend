@@ -12,13 +12,7 @@ export const Card = ({
   py = "py-8",
 }: CardProps) => {
   return (
-    <div
-      className={clsx(
-        "bg-lightGray rounded-lg px-5",
-        className,
-        py
-      )}
-    >
+    <div className={clsx("bg-background rounded-lg px-5", className, py)}>
       {title && <CardHeader title={title} description={description} />}
       {children}
     </div>

@@ -36,6 +36,8 @@
   --spacing-wrapper-lg: var(--spacing-wrapper-lg);
   --spacing-wrapper-xl: var(--spacing-wrapper-xl);
   --spacing-wrapper-4xl: var(--spacing-wrapper-4xl);
+
+  --background-image-auth-bg-pattern: url("/images/auth-bg-pattern.png");
 }
 
 body {

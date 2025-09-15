@@ -1,7 +1,7 @@
-import { Card } from "components/card";
+import { Card } from "@/components/card";
 import { Form } from "./_components/form";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { LinkButton } from "components/link-button";
+import { LinkButton } from "@/components/link-button";
 
 export default function Page() {
   return (

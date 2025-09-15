@@ -1,12 +1,12 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "components/button";
-import { MaskPasswordInput } from "components/mask-password-input";
-import { useResetPassword } from "hooks/services";
+import { Button } from "@/components/button";
+import { MaskPasswordInput } from "@/components/mask-password-input";
+import { useResetPassword } from "@/hooks/services";
 import { useSearchParams } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { resetPasswordValidationSchema } from "validations";
+import { resetPasswordValidationSchema } from "@/validations";
 import { InferType } from "yup";
 
 export const Form = ({ resetToken }: { resetToken: string }) => {

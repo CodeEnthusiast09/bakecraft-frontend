@@ -21,7 +21,7 @@ export const useTenantSignUp = () => {
   >({
     // @ts-ignore
     mutationFn: ({ data }: MutationProp) => {
-      return clientRequest.auth.tenantSignUp(data);
+      return clientRequest.tenant.tenantSignUp(data);
     },
     onSuccess: async (response: APIResponse) => {
       if (response?.success) {
@@ -33,7 +33,7 @@ export const useTenantSignUp = () => {
           storeInLocalStorage("tenant", tenant);
         }
 
-        router.replace(tenantPath("/signup", { tenantScoped: true }));
+        router.push(tenantPath("/signup", { tenantScoped: true }));
       }
     },
     onError: (error: ApiError) => {

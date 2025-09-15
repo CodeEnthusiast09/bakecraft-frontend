@@ -17,10 +17,10 @@ export default function Page() {
 
       {isSuccess && !isVerifying && (
         <>
-          <h1 className="text-2xl lg:text-3xl text-primary-500 font-semibold text-center ">
+          <h1 className="text-2xl lg:text-3xl text-primary-100 font-semibold text-center ">
             Welcome!
           </h1>
-          <div className="text-sm text-neutral-500 text-center mt-3 mb-10">
+          <div className="text-sm text-primary-500 text-center mt-3 mb-10">
             Activate your account by creating a{" "}
             <br className="hidden md:block" /> password
           </div>

@@ -1,4 +1,4 @@
-import { Card } from "components/card";
+import { Card } from "@/components/card";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { ResendEmailButton } from "./_components/resend-button";
 

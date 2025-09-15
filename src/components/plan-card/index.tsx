@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { PlanCardProps } from "./types";
-import { LinkButton } from "@/components/link-button";
 import { koboToNaira } from "@/lib/utils";
 import { Skeleton } from "@/components/skeleton";
 import { useInitiateSubscription } from "@/hooks/services";

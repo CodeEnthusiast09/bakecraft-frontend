@@ -1,7 +1,7 @@
 "use client";
-import { Card } from "components/card";
+import { Card } from "@/components/card";
 import { Form } from "./_components/form";
-import { useVerifyForgotPassword } from "hooks/services";
+import { useVerifyForgotPassword } from "@/hooks/services";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { ResendEmailButton } from "../forgot-password/success/_components/resend-button";
 import { AiOutlineLoading } from "react-icons/ai";

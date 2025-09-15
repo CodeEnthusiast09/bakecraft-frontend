@@ -191,12 +191,19 @@ export const clientRequestGateway = ({
     // tenant has been saved to localstorage after we resolved tenant slug
     const tenant: Tenant = retrieveFromLocalStorage("tenant");
 
+    console.log("Tenant from localStorage:", tenant);
+
+    // if (tenant) {
+    //   return service(
+    //     `${process.env.NEXT_PUBLIC_API_BASE_URL}/tenants/${tenant?.id}`
+    //   );
+    // }
     if (tenant) {
-      return service(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/tenants/${tenant?.id}`
-      );
+      const baseURL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/tenants/${tenant?.id}`;
+      console.log("Constructed base URL:", baseURL); // Debug log
+      return service(baseURL);
     }
   }
-
+  console.log("Using default service");
   return service();
 };

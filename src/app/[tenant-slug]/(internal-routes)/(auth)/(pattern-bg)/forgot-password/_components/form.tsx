@@ -1,13 +1,13 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "components/button";
-import { Input } from "components/input";
-import { useForgotPassword } from "hooks/services";
+import { Button } from "@/components/button";
+import { Input } from "@/components/input";
+import { useForgotPassword } from "@/hooks/services";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { MdOutlineEmail } from "react-icons/md";
-import { forgotPasswordValidationSchema } from "validations";
+import { forgotPasswordValidationSchema } from "@/validations";
 import { InferType } from "yup";
 
 export const Form = () => {
