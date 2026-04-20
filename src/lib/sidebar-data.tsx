@@ -24,7 +24,16 @@ export const sideBarModules: SidebarModule[] = [
     },
     items: [
       {
-        name: "Dashboard",
+        name: "Products",
+        icon: {
+          active: <FaArrowsRotate size={24} />,
+          default: <FaArrowsRotate size={24} opacity={0.4} />,
+        },
+        href: "/production",
+        tenantScoped: true,
+      },
+      {
+        name: "Raw Materials",
         icon: {
           active: <FaArrowsRotate size={24} />,
           default: <FaArrowsRotate size={24} opacity={0.4} />,
@@ -33,21 +42,21 @@ export const sideBarModules: SidebarModule[] = [
         tenantScoped: true,
       },
       {
-        name: "Dash",
+        name: "Shifts",
         icon: {
           active: <FaArrowsRotate size={24} />,
           default: <FaArrowsRotate size={24} opacity={0.4} />,
         },
-        href: "/production/raw1",
+        href: "/production/shifts",
         tenantScoped: true,
       },
       {
-        name: "board",
+        name: "Reports",
         icon: {
           active: <FaArrowsRotate size={24} />,
           default: <FaArrowsRotate size={24} opacity={0.4} />,
         },
-        href: "/production/raw2",
+        href: "/production/reports",
         tenantScoped: true,
       },
     ],

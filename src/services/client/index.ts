@@ -6,6 +6,7 @@ import { teamClientRequests } from "./team-api";
 import { selectionClientRequests } from "./selection-api";
 import { tenantClientRequest } from "./tenant-api";
 import { notificationClientsRequests } from "./notification-api";
+import { productionClientRequests } from "./production-api";
 
 export const clientRequest = {
   tenant: tenantClientRequest,
@@ -16,4 +17,5 @@ export const clientRequest = {
   team: teamClientRequests,
   selection: selectionClientRequests,
   notification: notificationClientsRequests,
+  production: productionClientRequests,
 };
