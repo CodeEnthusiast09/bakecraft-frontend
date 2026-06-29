@@ -16,7 +16,10 @@ import {
 } from "@/lib/localStorage";
 import { Tenant } from "@/interfaces";
 
-const service = (baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!) => {
+const service = (
+  baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!,
+  tenantSlug?: string | null,
+) => {
   const service = axios.create({
     baseURL,
     withCredentials: false,
@@ -42,6 +45,10 @@ const service = (baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!) => {
     if (token) {
       // if token is present, add it to headers as Authorization
       config.headers!["Authorization"] = `Bearer ${token}`;
+    }
+
+    if (tenantSlug) {
+      config.headers!["x-tenant-slug"] = tenantSlug;
     }
 
     return config;
@@ -187,23 +194,9 @@ const service = (baseURL = process.env.NEXT_PUBLIC_API_BASE_URL!) => {
 export const clientRequestGateway = ({
   prependTenantId = true,
 }: { prependTenantId?: boolean } = {}) => {
-  if (prependTenantId) {
-    // tenant has been saved to localstorage after we resolved tenant slug
-    const tenant: Tenant = retrieveFromLocalStorage("tenant");
+  const tenantSlug = prependTenantId
+    ? ((retrieveFromLocalStorage("tenant") as Tenant)?.slug ?? null)
+    : null;
 
-    console.log("Tenant from localStorage:", tenant);
-
-    // if (tenant) {
-    //   return service(
-    //     `${process.env.NEXT_PUBLIC_API_BASE_URL}/tenants/${tenant?.id}`
-    //   );
-    // }
-    if (tenant) {
-      const baseURL = `${process.env.NEXT_PUBLIC_API_BASE_URL}/tenants/${tenant?.id}`;
-      console.log("Constructed base URL:", baseURL); // Debug log
-      return service(baseURL);
-    }
-  }
-  console.log("Using default service");
-  return service();
+  return service(undefined, tenantSlug);
 };
