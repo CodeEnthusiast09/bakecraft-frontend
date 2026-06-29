@@ -42,11 +42,11 @@ const PlanCard = ({
 
   if (!data || data.length === 0) {
     return isLoading ? (
-      <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-10 md:overflow-x-visible md:pb-0 md:snap-none lg:grid-cols-3 xl:grid-cols-4 md:items-center md:justify-items-center">
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="bg-background w-[250px] shrink-0 h-[360px] py-10 px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between snap-start"
+            className="bg-background w-[250px] shrink-0 md:shrink md:snap-align-none h-[360px] py-10 px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between snap-start"
           >
             <Skeleton height={24} width={120} className="rounded-md" />
             <Skeleton height={40} width={180} className="rounded-md" />
@@ -61,11 +61,11 @@ const PlanCard = ({
   }
 
   return (
-    <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-10 md:overflow-x-visible md:pb-0 md:snap-none lg:grid-cols-3 xl:grid-cols-4 md:items-center md:justify-items-center">
       {data.map((plan) => (
         <div
           key={plan.planCode}
-          className="bg-background w-[250px] shrink-0 h-[360px] min-[320px]:py-10 min-[320px]:px-7 min-[375px]:py-10 min-[375px]:px-7 md:py-10 md:px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between snap-start"
+          className="bg-background w-[250px] shrink-0 md:shrink md:snap-align-none h-[360px] min-[320px]:py-10 min-[320px]:px-7 min-[375px]:py-10 min-[375px]:px-7 md:py-10 md:px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between snap-start"
         >
           <p className="font-bold text-xl text-primary-300">{plan.name}</p>
 
