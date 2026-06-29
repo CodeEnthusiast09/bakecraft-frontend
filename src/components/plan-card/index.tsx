@@ -42,11 +42,11 @@ const PlanCard = ({
 
   if (!data || data.length === 0) {
     return isLoading ? (
-      <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
+      <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="bg-background w-[250px] h-[360px] py-10 px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between"
+            className="bg-background w-[250px] shrink-0 h-[360px] py-10 px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between snap-start"
           >
             <Skeleton height={24} width={120} className="rounded-md" />
             <Skeleton height={40} width={180} className="rounded-md" />
@@ -61,11 +61,11 @@ const PlanCard = ({
   }
 
   return (
-    <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
+    <div className="mt-14 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {data.map((plan) => (
         <div
           key={plan.planCode}
-          className="bg-background w-[250px] h-[360px] min-[320px]:py-10 min-[320px]:px-7 min-[375px]:py-10 min-[375px]:px-7 md:py-10 md:px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between"
+          className="bg-background w-[250px] shrink-0 h-[360px] min-[320px]:py-10 min-[320px]:px-7 min-[375px]:py-10 min-[375px]:px-7 md:py-10 md:px-7 shadow-xl rounded-[20px] flex flex-col items-center justify-between snap-start"
         >
           <p className="font-bold text-xl text-primary-300">{plan.name}</p>
 
