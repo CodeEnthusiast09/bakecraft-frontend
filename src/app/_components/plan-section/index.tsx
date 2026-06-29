@@ -15,7 +15,7 @@ const PlansSection = () => {
         width={460}
         height={326}
         priority
-        className="transform scale-x-[-1] w-full h-[1900px] md:h-[1050px] xl:h-[380px] 2xl:h-[405px] object-cover object-[75%_70%] bg-primary-100"
+        className="transform scale-x-[-1] w-full h-[680px] md:h-[1050px] xl:h-[380px] 2xl:h-[405px] object-cover object-[75%_70%] bg-primary-100"
       />
 
       <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:p-24">
@@ -29,7 +29,7 @@ const PlansSection = () => {
           <br className="hidden md:block" /> and your team.
         </p>
 
-        <div>
+        <div className="-mx-5 px-5 md:mx-0 md:px-0">
           <PlanCard data={plans ?? []} isLoading={isPending} page="home" />
         </div>
       </div>
