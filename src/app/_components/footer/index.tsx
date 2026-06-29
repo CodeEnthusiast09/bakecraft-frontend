@@ -13,12 +13,12 @@ const Footer = () => {
       />
 
       <div className="absolute inset-0 z-20 py-8 px-5 lg:p-10 xl:py-24 grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-items-center">
-        <div className="relative w-[150px] md:w-[203px] h-auto aspect-[203/102]">
+        <div className="relative w-[155px] md:w-[203px] h-auto aspect-[203/102]">
           <Image
             alt="logo"
             src="/images/logo-white.png"
             fill
-            sizes="(max-width: 768px) 150px, 203px"
+            sizes="(max-width: 768px) 155px, 203px"
             priority
             className="object-contain"
           />
